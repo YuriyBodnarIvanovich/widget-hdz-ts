@@ -19,17 +19,6 @@
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
 }
 
-.questionnare-box span{
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 120%;
-  color: #20252B;
-  display: block;
-  margin-top: 30px;
-}
-
 .content-wrapper{
   width: 100%;
   padding: 40px 30px 0 30px;

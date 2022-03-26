@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 
 const WidgetDivs = document.querySelectorAll('.hbz_widget')
@@ -10,7 +12,9 @@ const WidgetDivs = document.querySelectorAll('.hbz_widget')
 WidgetDivs.forEach(Div => {
   ReactDOM.render(
     <React.StrictMode>
-      <App domElement={Div}/>
+      <Provider store={store}>
+        <App domElement={Div}/>
+      </Provider>
     </React.StrictMode>,
     Div
   );

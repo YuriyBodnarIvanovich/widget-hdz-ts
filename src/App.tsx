@@ -1,29 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import StartPage from './pages/StartPage';
+import { useDispatch } from "react-redux";
+import { 
+  setTextColor,
+  setBackgroundColor, 
+  setMainColor, 
+  setBorderColor 
+} from './redux/slice/mainOptionSlice';
+
 import './App.css';
- 
+
+
+
+
 const App:React.FC<{domElement: any}> = ( { domElement }) => {
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(setTextColor(domElement.getAttribute("textColor")));
+    dispatch(setBackgroundColor(domElement.getAttribute("backgroundColor")));
+    dispatch(setMainColor(domElement.getAttribute("mainColor")));
+    dispatch(setBorderColor(domElement.getAttribute("borderColor")));
+
+  },[]);
+
   
-  const textColor = domElement.getAttribute("textColor");
-  const backgroundColor = domElement.getAttribute("backgroundColor");
-  const mainColor = domElement.getAttribute("mainColor");
-  const borderColor = domElement.getAttribute("borderColor");
-
-  const colors= {
-    textColor: textColor,
-    backgroundColor: backgroundColor,
-    mainColor: mainColor,
-    borderColor: borderColor
-  }
-  
-  console.log(colors)
-
-
-
-  const handleStart = () => {
-    console.log('Start!!!')
-  }
-
   return (
     <div className='hbz-widget-box'>
       <div className='questionnare-box'>
@@ -32,12 +33,8 @@ const App:React.FC<{domElement: any}> = ( { domElement }) => {
             <div className='process-load'>
             </div>
           </div>
-          <span>
-            We are going to ask you a few question
-            s to more accurately select courses for you
-          </span>
         </div>
-        <button className='start-button' onClick={handleStart}>START</button>
+       <StartPage/>
       </div>
     </div>
   );
