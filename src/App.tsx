@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import StartPage from './pages/StartPage';
 import { useDispatch } from "react-redux";
 import { 
   setTextColor,
@@ -9,8 +8,8 @@ import {
 } from './redux/slice/mainOptionSlice';
 
 import './App.css';
-
-
+import Pages from './pages';
+import LineProgress from './compoents/LineProgress';
 
 
 const App:React.FC<{domElement: any}> = ( { domElement }) => {
@@ -21,20 +20,20 @@ const App:React.FC<{domElement: any}> = ( { domElement }) => {
     dispatch(setBackgroundColor(domElement.getAttribute("backgroundColor")));
     dispatch(setMainColor(domElement.getAttribute("mainColor")));
     dispatch(setBorderColor(domElement.getAttribute("borderColor")));
-
+    // eslint-disable-next-line
   },[]);
 
-  
   return (
     <div className='hbz-widget-box'>
       <div className='questionnare-box'>
         <div className='content-wrapper'>
-          <div className='process'>
+          {/* <div className='process'>
             <div className='process-load'>
             </div>
-          </div>
+          </div> */}
+          <LineProgress/>
         </div>
-       <StartPage/>
+       <Pages/>
       </div>
     </div>
   );

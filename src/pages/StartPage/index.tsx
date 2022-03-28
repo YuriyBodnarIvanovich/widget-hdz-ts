@@ -1,15 +1,22 @@
 import React from "react";
 import ButtonComponent from "../../compoents/Button";
 import { TextComponet } from "../../compoents/Text";
-
+import { useDispatch, useSelector } from "react-redux";
+import { AppState } from "../../redux/store";
+import { setNumber } from "../../redux/slice/pagesSlice";
 const StartPage = () => {
+    const dispatch = useDispatch();
+    const pageNumber = useSelector((state: AppState) => state.pagesReducer.pageNumber);
+
     const handleStart = () => {
-        console.log('Start!!!')
+        console.log('Start!!!');
+        dispatch(setNumber(pageNumber + 1));
     }
+
     
     return(
         <>
-            <TextComponet $margin="30px 0 0 30px">
+            <TextComponet $margin="30px 40px 0 40px">
                 We are going to ask you a few question
                 s to more accurately select courses for you
             </TextComponet>
