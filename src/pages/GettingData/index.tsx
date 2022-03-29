@@ -6,31 +6,11 @@ import { AppState } from "../../redux/store";
 import { setNumber } from "../../redux/slice/pagesSlice";
 import { TextComponet } from "../../compoents/Text";
 import InputComponent from "../../compoents/Input";
-import {useForm} from "react-hook-form";
-import { validationSchema } from "./validation";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const GettingData = () => {
     const dispatch = useDispatch();
     const pageNumber = useSelector((state: AppState) => state.pagesReducer.pageNumber);
-
-    const {
-        register,
-        setValue,
-        handleSubmit,
-        watch,
-        formState: {errors},
-    } = useForm({
-        mode: "onChange",
-        resolver: yupResolver(validationSchema),
-        defaultValues: {
-            name: '',
-            telefon: '',
-            email: ''
-        },
-    });
-
-    const [ nameWathcer, telefonWathcer, emailWatcher ] = watch([ 'name', 'telefon','email' ]);
 
     const handleBack = () => {
         dispatch(setNumber(pageNumber - 1));
@@ -43,7 +23,7 @@ const GettingData = () => {
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const data = e.target.value.match(/\d/g)?.join('') ?? '';
         const dataNew = `(+ ${data.slice(0,2)} ${data.slice(2,5)}) ${data.slice(5,7)} ${data.slice(7,9)} ${data.slice(9)}`;
-        setValue('telefon', data ? dataNew : '');
+        // setValue('telefon', data ? dataNew : '');
       };
 
     return(
@@ -58,11 +38,7 @@ const GettingData = () => {
                     $bottomborder="solid 2px #DEE1E7"
                     $margin="30px 0 0 40px"
                     $placeholder="Name*"
-                    register={register}
                     name={'name'}
-                    value={nameWathcer}
-                    errorMessage={errors.name?.message}
-                    error={!!errors.name}
                 />
                 <InputComponent 
                     $width="557px" 
@@ -70,12 +46,8 @@ const GettingData = () => {
                     $bottomborder="solid 2px #DEE1E7"
                     $margin="30px 0 0 40px"
                     $placeholder="Telefon*"
-                    register={register}
                     name={'telefon'}
-                    value={telefonWathcer}
-                    errorMessage={errors.telefon?.message}
                     onChange={handleChange}
-                    error={!!errors.telefon}
                 />
                 <InputComponent 
                     $width="557px" 
@@ -83,11 +55,7 @@ const GettingData = () => {
                     $bottomborder="solid 2px #DEE1E7"
                     $margin="30px 0 0 40px"
                     $placeholder="Email-Adresse*"
-                    register={register}
                     name={'email'}
-                    value={emailWatcher}
-                    errorMessage={errors.email?.message}
-                    error={!!errors.email}
                 />
             </InputBox>
             <ButtonWrapper>
@@ -97,7 +65,7 @@ const GettingData = () => {
                 $color="#20252B">
                     Previouse
                 </ButtonComponent>
-                <ButtonComponent onClick={handleSubmit(next)}
+                <ButtonComponent onClick={next}
                 $borderRadiusBottomRight='30px'
                 mainButton>
                     START

@@ -5,7 +5,6 @@ import { InputProps } from "./types";
 
 const InputComponent:React.FC<InputProps> = ({
   name,
-  register,
   $width,
   $height,
   $border,
@@ -28,13 +27,13 @@ const InputComponent:React.FC<InputProps> = ({
           {$placeholder || ''}
         </TextComponet>
         <InputStyle 
+          name={name}
           $width={$width} 
           $height={$height} 
           $border={$border} 
           $bottomborder={$bottomborder}
           $margin={$margin}
           error={error}
-          {...register(name, {onChange})}
         />
         {error && (
           <TextComponet
