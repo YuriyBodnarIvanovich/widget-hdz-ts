@@ -10,7 +10,8 @@ export const ButtonStyled = styled.button<IButtonComponent>`
     border-bottom-right-radius: ${({$borderRadiusBottomRight}) => $borderRadiusBottomRight};
     outline: none;
     border: ${({$border}) => $border ?? 'none'};
-    position: absolute;
+    position: ${({$position}) => $position };
+    bottom: ${({$bottom}) => $bottom};
     bottom: 0px;
     font-family: 'Inter';
     font-style: normal;

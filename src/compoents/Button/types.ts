@@ -11,4 +11,6 @@ export interface IButtonComponent {
     $fontWeidth?: string;
     $fontSize?: string;
     $color?: string;
+    $position?: string;
+    $bottom?: string;
 }

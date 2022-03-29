@@ -3,6 +3,9 @@ export interface ITextComponent {
     $fontSize?: string,
     $fontWeight?: string,
     $margin?: string,
+    $color?: string,
+    $postion?:string,
+
 }
 
 export interface IText {
@@ -10,4 +13,5 @@ export interface IText {
     $fontWeight?: string,
     $color?: string,
     $margin?: string,
+    $postion?:string,
 }

@@ -10,4 +10,7 @@ export const TextStyled = styled.span<IText>`
     color: ${({$color})=> $color};
     display: block;
     margin: ${({$margin}) => $margin};
+    position: ${({$postion}) => $postion};
+    -webkit-transition: margin 0.5s, -webkit-transform 0.5s;
+    transition: margin 0.5s, transform 0.5s;
 `;

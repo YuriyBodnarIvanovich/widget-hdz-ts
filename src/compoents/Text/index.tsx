@@ -10,12 +10,15 @@ export const TextComponet:React.FC<ITextComponent> = (
         $fontSize, 
         $fontWeight, 
         $margin,
+        $color,
+        $postion
+
     }) => {
 
     const textColor = useSelector((state: AppState) => state.mainToolsReducer.textColor);
 
     return(
-        <TextStyled $fontSize={$fontSize} $fontWeight={$fontWeight} $margin={$margin} $color={textColor}>
+        <TextStyled $fontSize={$fontSize} $fontWeight={$fontWeight} $margin={$margin} $color={$color ?? textColor} $postion={$postion}>
             {children}
         </TextStyled>
     )

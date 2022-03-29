@@ -27,10 +27,6 @@ const App:React.FC<{domElement: any}> = ( { domElement }) => {
     <div className='hbz-widget-box'>
       <div className='questionnare-box'>
         <div className='content-wrapper'>
-          {/* <div className='process'>
-            <div className='process-load'>
-            </div>
-          </div> */}
           <LineProgress/>
         </div>
        <Pages/>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "../redux/store";
+import GettingData from "./GettingData";
 import StartPage from "./StartPage";
 
 
@@ -12,7 +13,7 @@ const Pages = () => {
         case 0:
             return <StartPage/>
         case 1:
-            return <h1>hello</h1>
+            return <GettingData/>
         default:
             return <></>
     }
