@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TextComponet } from "../Text";
 import { InputStyle, InputWrapper } from "./styled";
 import { InputProps } from "./types";
@@ -16,13 +16,15 @@ const InputComponent:React.FC<InputProps> = ({
   errorMessage,
   onChange
 }) => {
-  const margin = value ? '10px 40px 0 40px' : '30px 40px 0 56px';
+  const [ activate, setActivate ] = useState(false);
+  const margin = value ? '14px 40px 0 42px' : '40px 40px 0 56px';
 
   return(
-    <InputWrapper>
+    <InputWrapper onClick={()=>{setActivate(true)}}>
         <TextComponet
           $margin={margin} 
           $color="#A1A9B3" 
+          $fontSize="12px"
           $postion={'absolute'}>
           {$placeholder || ''}
         </TextComponet>
@@ -33,9 +35,11 @@ const InputComponent:React.FC<InputProps> = ({
           $border={$border} 
           $bottomborder={$bottomborder}
           $margin={$margin}
-          error={error}
+          error={activate && error}
+          value={value}
+          onChange={onChange}
         />
-        {error && (
+        {error && activate && (
           <TextComponet
             $margin={'1px 0 0 40px'} 
             $color="red"

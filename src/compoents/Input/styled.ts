@@ -15,6 +15,8 @@ export const InputStyle = styled.input<InputProps>`
     margin: ${({$margin}) => $margin};
     -webkit-appearance: none;
     ${({ error }) => error &&  `border-bottom: 2px solid red`};
+    background: rgba(0, 0, 0, 0);
+    
 
     &:-webkit-autofill,
     &:-webkit-autofill:hover, 
@@ -23,5 +25,10 @@ export const InputStyle = styled.input<InputProps>`
         border-bottom: ${({$bottomborder}) => $bottomborder};
         -webkit-text-fill-color: black;
         transition: background-color 5000s ease-in-out 0s;
+    }
+    z-index: 1;
+
+    &:focus{
+        border-bottom: 1px solid #20252B;
     }
 `;
