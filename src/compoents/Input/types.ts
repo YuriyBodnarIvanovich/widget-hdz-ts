@@ -14,6 +14,7 @@ export interface InputProps {
 	value?: string;
 	error?: boolean;
 	errorMessage?: string | undefined;
+	sumbit?: boolean;
 }
 
 export interface IInputWrapper {

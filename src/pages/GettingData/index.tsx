@@ -7,12 +7,15 @@ import { setNumber } from "../../redux/slice/pagesSlice";
 import { TextComponet } from "../../compoents/Text";
 import InputComponent from "../../compoents/Input";
 import { validateEmail, validateName, validateTelefone } from './validation';
+import { getClientId } from "../../API";
+import { setQuestions } from "../../redux/slice/answersSlice";
 const GettingData = () => {
     const dispatch = useDispatch();
     const pageNumber = useSelector((state: AppState) => state.pagesReducer.pageNumber);
     const [name, setName] = useState<string>('');
     const [telefone, setTelefone] = useState<string>('');
     const [email, setEmail] = useState<string>('');
+    const [submitErr, setSubmitErr] = useState(false);
     const handleBack = () => {
         dispatch(setNumber(pageNumber - 1));
     }
@@ -31,8 +34,16 @@ const GettingData = () => {
         setEmail(e.target.value);
     }
 
-    const handleSubmit = () => {
-        dispatch(setNumber(pageNumber + 1));
+    const handleSubmit =  () => {
+        if(name !== '' && telefone !== '' && email !== ''){
+            getClientId(name, telefone, email).then( async (data) => {
+                console.log(data);
+                dispatch(setQuestions(data));
+                dispatch(setNumber(pageNumber + 1));
+            }) 
+        }
+        setSubmitErr(true);
+
     }
 
     return(
@@ -52,6 +63,7 @@ const GettingData = () => {
                     onChange={handleName}
                     error={validateName(name).error}
                     errorMessage={validateName(name).message}
+                    sumbit={submitErr && !name}
                 />
                 <InputComponent 
                     $width="557px" 
@@ -64,6 +76,7 @@ const GettingData = () => {
                     onChange={handleTelefone}
                     error={validateTelefone(telefone).error}
                     errorMessage={validateTelefone(telefone).message}
+                    sumbit={submitErr && !telefone}
                 />
                 <InputComponent 
                     $width="557px" 
@@ -76,6 +89,7 @@ const GettingData = () => {
                     onChange={handleEmail}
                     error={validateEmail(email).error}
                     errorMessage={validateEmail(email).message}
+                    sumbit={submitErr && !email}
                 />
             </InputBox>
             <ButtonWrapper>
