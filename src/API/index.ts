@@ -1,7 +1,7 @@
 export const  getClientId = (name: string,phone: string, email: string) => {    
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Accept': '*/*' },
         body: JSON.stringify(
             {
                 name: name,
