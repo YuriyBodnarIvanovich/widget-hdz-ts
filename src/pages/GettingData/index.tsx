@@ -8,7 +8,7 @@ import { TextComponet } from "../../compoents/Text";
 import InputComponent from "../../compoents/Input";
 import { validateEmail, validateName, validateTelefone } from './validation';
 import { getClientId } from "../../API";
-import { setQuestions } from "../../redux/slice/answersSlice";
+import { setClientId, setQuestions } from "../../redux/slice/answersSlice";
 const GettingData = () => {
     const dispatch = useDispatch();
     const pageNumber = useSelector((state: AppState) => state.pagesReducer.pageNumber);
@@ -36,9 +36,10 @@ const GettingData = () => {
 
     const handleSubmit =  () => {
         if(name !== '' && telefone !== '' && email !== ''){
-            getClientId(name, telefone, email).then( async (data) => {
+            getClientId(name, telefone, email).then((data) => {
                 console.log(data);
                 dispatch(setQuestions(data));
+                dispatch(setClientId(data.clientId));
                 dispatch(setNumber(pageNumber + 1));
             }) 
         }
