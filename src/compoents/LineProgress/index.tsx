@@ -3,13 +3,13 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
 import { LineProgressWrapper, ProgressLoad } from "./styled";
 
-const LineProgress = () => {
-    const pageNumber = useSelector((state: AppState) => state.pagesReducer.pageNumber);
+const LineProgress:React.FC<{range: number}> = ({range}) => {
     const mainColor = useSelector((state: AppState) => state.mainToolsReducer.mainColor);
+    const questionPage = useSelector((state: AppState) => state.answersReducer.questionPage);
 
     return(
         <LineProgressWrapper>
-            <ProgressLoad pages={pageNumber} $backgoundColor={mainColor}/>
+            <ProgressLoad pages={range} stepQuestion={questionPage}$backgoundColor={mainColor}/>
         </LineProgressWrapper>
     )
 }

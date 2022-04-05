@@ -61,6 +61,13 @@ export const mockData = [
             }
         ]
     },
+    {
+        text: 'Text Question!',
+        questionType: 2,
+        clientId: '',
+        questionId: '',
+        answerItemResponses: []
+    }
 
 ]
 export const  getClientId = (name: string,phone: string, email: string) => {    

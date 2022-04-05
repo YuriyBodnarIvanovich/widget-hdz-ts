@@ -103,7 +103,7 @@ const GettingData = () => {
                 <ButtonComponent onClick={handleSubmit}
                 $borderRadiusBottomRight='30px'
                 mainButton>
-                    START
+                    NEXT
                 </ButtonComponent>
             </ButtonWrapper>
         </GettingDataWrapper>

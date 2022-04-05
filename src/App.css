@@ -9,8 +9,8 @@
   align-items: center;
 }
 .questionnare-box{
-  width: 100%;
-  max-width: 1228px;
+  /* width: 100%;
+  max-width: 1228px; */
   height: auto;
   position: relative;
   background-color: white;

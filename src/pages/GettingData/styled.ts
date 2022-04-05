@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const GettingDataWrapper = styled.div`
-    width: 100%;
+    // width: 100%;
+    width: 1298px;
     height: 375px;
 
 `;

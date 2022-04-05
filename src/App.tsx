@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { 
   setTextColor,
   setBackgroundColor, 
@@ -10,10 +10,13 @@ import {
 import './App.css';
 import Pages from './pages';
 import LineProgress from './compoents/LineProgress';
+import { AppState } from './redux/store';
 
 
 const App:React.FC<{domElement: any}> = ( { domElement }) => {
   const dispatch = useDispatch();
+  const pageNumber = useSelector((state: AppState) => state.pagesReducer.pageNumber);
+
 
   useEffect(()=>{
     dispatch(setTextColor(domElement.getAttribute("textColor")));
@@ -26,9 +29,12 @@ const App:React.FC<{domElement: any}> = ( { domElement }) => {
   return (
     <div className='hbz-widget-box'>
       <div className='questionnare-box'>
-        <div className='content-wrapper'>
-          <LineProgress/>
-        </div>
+        {pageNumber < 3 && (
+          <div className='content-wrapper'>
+            <LineProgress range={pageNumber}/>
+          </div>
+        )}
+        
        <Pages/>
       </div>
     </div>

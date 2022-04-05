@@ -11,6 +11,7 @@ import { setAnswers, setQuestionPage, setQuestions } from '../../redux/slice/ans
 import InputComponent from '../../compoents/Input';
 // import { sendAnswer } from '../../API/index';
 import { mockData } from '../../API/index';
+import { setNumber } from '../../redux/slice/pagesSlice';
 const QuestionPage = () => {
     const questionPage = useSelector((state: AppState) => state.answersReducer.questionPage);
     const questionData = useSelector((state: AppState) => state.answersReducer.questions[questionPage]);
@@ -19,14 +20,18 @@ const QuestionPage = () => {
     const dispatch = useDispatch();
     
     const handleBack = () => {
-        dispatch(setQuestionPage(questionPage - 1));
+        questionPage > 0 ? dispatch(setQuestionPage(questionPage - 1)) : dispatch(setNumber(1))
     }
 
     const handleSubmit  = () => {
         // sendAnswer(clientId, answers[questionPage].answerData, answers[questionPage].comment).then((data)=> console.log(data)) !!! BE
 
+       if(questionPage < 3){
         dispatch(setQuestions(mockData[questionPage + 1]));
         dispatch(setQuestionPage(questionPage + 1));
+       }else{
+        dispatch(setNumber(3))
+       }
     }
 
     useEffect(()=>{
@@ -116,7 +121,7 @@ const QuestionPage = () => {
             <ButtonComponent onClick={handleSubmit}
             $borderRadiusBottomRight='30px'
             mainButton>
-                START
+                NEXT
             </ButtonComponent>
         </ButtonWrapper>
         </>

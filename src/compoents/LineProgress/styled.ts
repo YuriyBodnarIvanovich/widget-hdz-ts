@@ -13,7 +13,7 @@ export const LineProgressWrapper = styled.div`
 `;
 
 export const ProgressLoad = styled.div<IProgress>`
-    width: ${({pages}) => `${114 * (pages+1)}px`};
+    width: ${({pages, stepQuestion}) => `${(pages+1)*10 + stepQuestion*2}%`};
     height: 10px;
     background: ${({$backgoundColor})=> $backgoundColor};
     border-radius: 5px;

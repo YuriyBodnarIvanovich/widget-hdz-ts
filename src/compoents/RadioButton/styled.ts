@@ -13,7 +13,7 @@ input[type=radio] {
     color: #0f43f9;
     width: 16px;
     height: 16px;
-    border: 2px solid #dadada;
+    border: 2px solid  ${({active}) => active ? '#FE724C' : ' #dadada'};
     border-radius: 50%;
     transform: translateY(-0.075em);
     display: flex;
@@ -37,6 +37,10 @@ input[type=radio]:checked:before {
     transform: scale(1);
 }
 
+`;
+
+export const RadioPagging = styled.div`
+    padding: 3px 0 0 0;
 `;
 
 export const RadioButton = styled.input`
