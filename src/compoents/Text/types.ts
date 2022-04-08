@@ -1,4 +1,5 @@
 export interface ITextComponent {
+    id?: string;
     children: string | JSX.Element,
     $fontSize?: string,
     $fontWeight?: string,

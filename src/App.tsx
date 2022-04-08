@@ -16,7 +16,7 @@ import { AppState } from './redux/store';
 const App:React.FC<{domElement: any}> = ( { domElement }) => {
   const dispatch = useDispatch();
   const pageNumber = useSelector((state: AppState) => state.pagesReducer.pageNumber);
-
+  const backgroundColor = useSelector((state: AppState) => state.mainToolsReducer.backgroundColor);
 
   useEffect(()=>{
     dispatch(setTextColor(domElement.getAttribute("textColor")));
@@ -28,7 +28,8 @@ const App:React.FC<{domElement: any}> = ( { domElement }) => {
 
   return (
     <div className='hbz-widget-box'>
-      <div className='questionnare-box'>
+      <div className='questionnare-box'
+        style={{backgroundColor: backgroundColor}}>
         {pageNumber < 3 && (
           <div className='content-wrapper'>
             <LineProgress range={pageNumber}/>

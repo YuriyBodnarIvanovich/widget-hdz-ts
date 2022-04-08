@@ -1,6 +1,8 @@
 
 export interface IRadioButton {
     active?: boolean;
+    mainColor: string;
+
 }
 
 export interface IRadioButtonCompoent {

@@ -15,6 +15,9 @@ export interface InputProps {
 	error?: boolean;
 	errorMessage?: string | undefined;
 	sumbit?: boolean;
+	id?: string;
+	colorLabel?: string;
+
 }
 
 export interface IInputWrapper {

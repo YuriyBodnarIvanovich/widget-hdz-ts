@@ -8,29 +8,6 @@ interface IAnswer {
 
 const initialState:{questions: IQuestionArr[], questionPage: number, answers: Array<IAnswer>, clientId: string} = {
    questions: [
-       {
-        answerItemResponses: [     
-            {
-                answerId: "3fa85f64-5717-4562-b3fc-2c963f66afa6-1",
-                number: 0,
-                text: "question 1"
-            },
-            {
-                answerId: "3fa85f64-5717-4562-b3fc-2c963f66afa6-2",
-                number: 1,
-                text: "question 2"
-            },
-            {
-                answerId: "3fa85f64-5717-4562-b3fc-2c963f66afa6-3",
-                number: 3,
-                text: "question 3"
-            }
-        ],
-        clientId: '',
-        questionId: '',
-        questionType: 0,
-        text: 'Hello fisrt Question',
-       }
    ],
    questionPage: 0,
    answers: [],

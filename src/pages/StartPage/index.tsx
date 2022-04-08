@@ -13,7 +13,6 @@ const StartPage = () => {
         dispatch(setNumber(pageNumber + 1));
     }
 
-    
     return(
         <StartPageBox>
             <TextComponet $margin="30px 40px 0 40px">

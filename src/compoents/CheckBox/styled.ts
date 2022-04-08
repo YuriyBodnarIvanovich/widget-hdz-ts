@@ -22,7 +22,7 @@ export const CheckBoxWrapper = styled.div<ICheckBox>`
         align-items: center;
         justify-content: center;
 
-        background-color: ${({active}) => active ? '#FE724C' : '#fff'};
+        background-color: ${({active, mainColor}) => active ? mainColor : '#fff'};
         border: ${({active}) => active ? 'none' : '2px solid #A1A9B3'};
 
     }

@@ -1,5 +1,6 @@
 export interface ICheckBox {
     active?: boolean;
+    mainColor: string;
 }
 
 

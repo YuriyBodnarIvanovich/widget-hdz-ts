@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mediaMaxTablet, mediaMidleMobile } from "../../static/mediaValues";
 import { IText } from "./types";
 
 export const TextStyled = styled.span<IText>`
@@ -13,4 +14,11 @@ export const TextStyled = styled.span<IText>`
     position: ${({$postion}) => $postion};
     -webkit-transition: margin 0.5s, -webkit-transform 0.5s;
     transition: margin 0.5s, transform 0.5s;
+    ${mediaMaxTablet}{
+        font-size: 16px;
+    } 
+    ${mediaMidleMobile}{
+        font-size: 14px;
+    }   
+
 `;

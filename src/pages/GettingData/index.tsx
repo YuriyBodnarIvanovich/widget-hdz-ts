@@ -12,6 +12,8 @@ import { setClientId, setQuestions } from "../../redux/slice/answersSlice";
 const GettingData = () => {
     const dispatch = useDispatch();
     const pageNumber = useSelector((state: AppState) => state.pagesReducer.pageNumber);
+    const borderColor = useSelector((state: AppState) => state.mainToolsReducer.borderColor);
+
     const [name, setName] = useState<string>('');
     const [telefone, setTelefone] = useState<string>('');
     const [email, setEmail] = useState<string>('');
@@ -54,9 +56,10 @@ const GettingData = () => {
             </TextComponet>
             <InputBox>
                 <InputComponent 
-                    $width="557px" 
+                    $width="100%" 
                     $border="none" 
-                    $bottomborder="solid 2px #DEE1E7"
+                    $bottomborder={`solid 2px ${borderColor}`}
+                    colorLabel={borderColor}
                     $margin="30px 0 0 40px"
                     $placeholder="Name*"
                     name={'name'}
@@ -67,9 +70,10 @@ const GettingData = () => {
                     sumbit={submitErr && !name}
                 />
                 <InputComponent 
-                    $width="557px" 
+                    $width="100%" 
                     $border="none" 
-                    $bottomborder="solid 2px #DEE1E7"
+                    $bottomborder={`solid 2px ${borderColor}`}
+                    colorLabel={borderColor}
                     $margin="30px 0 0 40px"
                     $placeholder="Telefon*"
                     name={'telefon'}
@@ -80,9 +84,10 @@ const GettingData = () => {
                     sumbit={submitErr && !telefone}
                 />
                 <InputComponent 
-                    $width="557px" 
+                    $width="100%" 
                     $border="none" 
-                    $bottomborder="solid 2px #DEE1E7"
+                    $bottomborder={`solid 2px ${borderColor}`}
+                    colorLabel={borderColor}
                     $margin="30px 0 0 40px"
                     $placeholder="Email-Adresse*"
                     name={'email'}

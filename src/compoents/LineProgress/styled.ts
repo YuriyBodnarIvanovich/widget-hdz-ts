@@ -2,13 +2,13 @@ import styled from "styled-components";
 import { IProgress } from "./types";
 
 
-export const LineProgressWrapper = styled.div`
+export const LineProgressWrapper = styled.div<{background: string}>`
     width: 100%;
     height: 10px;
     box-sizing: border-box;
     display: flex;
     justify-content: flex-start;
-    background: #DEE1E7;
+    background: ${({background}) => background ?? '#DEE1E7'};
     border-radius: 5px;
 `;
 

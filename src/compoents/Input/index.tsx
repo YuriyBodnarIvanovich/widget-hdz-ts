@@ -15,7 +15,9 @@ const InputComponent:React.FC<InputProps> = ({
   error,
   errorMessage,
   onChange,
-  sumbit
+  sumbit,
+  id,
+  colorLabel
 }) => {
   const [ activate, setActivate ] = useState(false);
   const margin = value ? '14px 40px 0 42px' : '40px 40px 0 56px';
@@ -25,7 +27,7 @@ const InputComponent:React.FC<InputProps> = ({
     <InputWrapper onClick={()=>{setActivate(true)}}>
         <TextComponet
           $margin={margin} 
-          $color="#A1A9B3" 
+          $color={colorLabel} 
           $fontSize="12px"
           $postion={'absolute'}>
           {$placeholder || ''}
@@ -40,6 +42,7 @@ const InputComponent:React.FC<InputProps> = ({
           error={(activate || sumbit) && error}
           value={value}
           onChange={onChange}
+          id={id}
         />
         {(activate || sumbit ) && error && (
           <TextComponet

@@ -7,7 +7,7 @@ export const RadioButtonWrapper = styled.div<IRadioButton>`
     margin-top: 20px;
 input[type=radio] {
     appearance: none;
-    background-color: ${({active}) => active ? '#FE724C' : '#fff'};
+    background-color: ${({active, mainColor}) => active ?  mainColor : '#fff'};
     margin: 0;
     font: inherit;
     color: #0f43f9;

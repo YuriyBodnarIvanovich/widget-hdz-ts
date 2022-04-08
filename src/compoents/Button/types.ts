@@ -13,4 +13,5 @@ export interface IButtonComponent {
     $color?: string;
     $position?: string;
     $bottom?: string;
+    $disabled?: boolean;
 }

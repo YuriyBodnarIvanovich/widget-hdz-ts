@@ -18,7 +18,8 @@ const ButtonComponent: React.FC<IButtonComponent> = ({
     $fontSize,
     $color,
     $position,
-    $bottom}) => {
+    $bottom,
+    $disabled}) => {
     const mainColor = useSelector((state: AppState) => state.mainToolsReducer.mainColor);
     return(
         <ButtonStyled
@@ -35,7 +36,9 @@ const ButtonComponent: React.FC<IButtonComponent> = ({
          $fontSize={$fontSize}
          $color={$color}
          $position={$position}
-         $bottom={$bottom}>
+         $bottom={$bottom}
+         $disabled={$disabled}
+         disabled={$disabled}>
             {children}
         </ButtonStyled>
     )
