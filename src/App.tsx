@@ -4,7 +4,8 @@ import {
   setTextColor,
   setBackgroundColor, 
   setMainColor, 
-  setBorderColor 
+  setBorderColor, 
+  setQuestionnaireId
 } from './redux/slice/mainOptionSlice';
 
 import './App.css';
@@ -23,6 +24,7 @@ const App:React.FC<{domElement: any}> = ( { domElement }) => {
     dispatch(setBackgroundColor(domElement.getAttribute("backgroundColor")));
     dispatch(setMainColor(domElement.getAttribute("mainColor")));
     dispatch(setBorderColor(domElement.getAttribute("borderColor")));
+    dispatch(setQuestionnaireId(domElement.getAttribute("questionnaireId")));
     // eslint-disable-next-line
   },[]);
 

@@ -5,7 +5,8 @@ const initialState = {
     textColor: '',
     backgroundColor: '',
     mainColor: '',
-    borderColor:'',    
+    borderColor:'',
+    questionnaireId:'',  
 };
 
 export const mainOptionSlice = createSlice({
@@ -24,8 +25,11 @@ export const mainOptionSlice = createSlice({
         setBorderColor:(state, action) => {
             state.borderColor = action.payload
         },
+        setQuestionnaireId:(state, action) => {
+            state.questionnaireId = action.payload
+        }
 
     }
 });
 
-export const { setTextColor, setBackgroundColor, setMainColor, setBorderColor } = mainOptionSlice.actions;
+export const { setTextColor, setBackgroundColor, setMainColor, setBorderColor, setQuestionnaireId } = mainOptionSlice.actions;

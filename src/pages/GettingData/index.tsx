@@ -13,6 +13,7 @@ const GettingData = () => {
     const dispatch = useDispatch();
     const pageNumber = useSelector((state: AppState) => state.pagesReducer.pageNumber);
     const borderColor = useSelector((state: AppState) => state.mainToolsReducer.borderColor);
+    const questionnaireId = useSelector((state: AppState) => state.mainToolsReducer.questionnaireId);
 
     const [name, setName] = useState<string>('');
     const [telefone, setTelefone] = useState<string>('');
@@ -38,8 +39,7 @@ const GettingData = () => {
 
     const handleSubmit =  () => {
         if(name !== '' && telefone !== '' && email !== ''){
-            getClientId(name, telefone, email).then((data) => {
-                console.log(data);
+            getClientId(name, telefone, email, questionnaireId).then((data) => {
                 dispatch(setQuestions(data));
                 dispatch(setClientId(data.clientId));
                 dispatch(setNumber(pageNumber + 1));
