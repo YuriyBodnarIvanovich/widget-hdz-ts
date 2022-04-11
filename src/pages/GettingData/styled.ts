@@ -39,7 +39,7 @@ export const ButtonWrapper = styled.div`
     position: absolute;
     bottom: 0px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 `;
 
 export const InputBox = styled.div`

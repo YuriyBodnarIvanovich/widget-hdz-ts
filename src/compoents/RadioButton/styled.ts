@@ -13,7 +13,7 @@ input[type=radio] {
     color: #0f43f9;
     width: 16px;
     height: 16px;
-    border: 2px solid  ${({active}) => active ? '#FE724C' : ' #dadada'};
+    border: 2px solid  ${({active, mainColor}) => active ? mainColor : ' #dadada'};
     border-radius: 50%;
     transform: translateY(-0.075em);
     display: flex;

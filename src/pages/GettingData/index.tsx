@@ -99,13 +99,8 @@ const GettingData = () => {
                 />
             </InputBox>
             <ButtonWrapper>
-                <ButtonComponent onClick={handleBack}
-                $borderRadiusBottomLeft='30px'
-                $border="1px solid #20252B"
-                $color="#20252B">
-                    Previouse
-                </ButtonComponent>
                 <ButtonComponent onClick={handleSubmit}
+                $borderRadiusBottomLeft='30px'
                 $borderRadiusBottomRight='30px'
                 mainButton>
                     NEXT

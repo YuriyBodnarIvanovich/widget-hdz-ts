@@ -130,15 +130,8 @@ const QuestionPage = () => {
             />
         </QuestionWrapper>
         <ButtonWrapper>
-            <ButtonComponent onClick={handleBack}
-            $borderRadiusBottomLeft='30px'
-            $border={`1px solid ${borderColor}`}
-            $color="#20252B"
-           
-            >
-                Previouse
-            </ButtonComponent>
             <ButtonComponent onClick={handleSubmit}
+            $borderRadiusBottomLeft='30px'
             $borderRadiusBottomRight='30px'
             mainButton
             $disabled={disabledNext}>

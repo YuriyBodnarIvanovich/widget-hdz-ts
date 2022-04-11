@@ -37,7 +37,6 @@ const App:React.FC<{domElement: any}> = ( { domElement }) => {
             <LineProgress range={pageNumber}/>
           </div>
         )}
-        
        <Pages/>
       </div>
     </div>
