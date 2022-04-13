@@ -1,8 +1,7 @@
 
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, Image, Svg, G, Polygon, Path, Rect, Font, PDFViewer} from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
 
-import logoImage from '../../static/img/logo_pdf.png';
 import { Logo } from './Logo';
 import photo from '../../static/img/Frame.png'
 
@@ -46,7 +45,6 @@ const styles = StyleSheet.create({
   },
   headerResult: {
     width: '100%',
-    // height: 23, 
     borderBottom: '0.5px solid #A1A9B2',
     flexDirection: 'row',
     padding: '5px 10px 5px 10px',
