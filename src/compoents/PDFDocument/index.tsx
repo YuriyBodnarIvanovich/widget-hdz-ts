@@ -4,22 +4,22 @@ import { Page, Text, View, Document, StyleSheet, Image, Svg, G, Polygon, Path, R
 
 import logoImage from '../../static/img/logo_pdf.png';
 import { Logo } from './Logo';
-import font from './inter_font.ttf'
-import fontRegular from './InterRegular.ttf';
+// import font from './inter_font.ttf'
+// import fontRegular from './InterRegular.ttf';
 import photo from '../../static/img/Frame.png'
 // Create styles
 
 
-Font.register({ 
-  family: 'Inter',
-  fonts: [
-    {
+// Font.register({ 
+//   family: 'Inter',
+//   fonts: [
+//     {
 
-      src: fontRegular,
-      fontWeight: 'Normal'
-    }
-  ]
-});
+//       src: fontRegular,
+//       fontWeight: 'Normal'
+//     }
+//   ]
+// });
 
 const styles = StyleSheet.create({
   page: {
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     border:'none',
     borderLeft: '1px solid #A1A9B2',
     fontSize: '8px', 
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     lineHeight: '130%',
     padding: '2px 0 0 30px',
   },
