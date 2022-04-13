@@ -150,9 +150,9 @@ const PDFDocument = () => (
           Page:<Text style={{fontSize: 8,color: '#20252B'}}>&nbsp;{pageNumber}</Text> / {totalPages}
         </Text>
       )} fixed />
-       <Image style={styles.backgorindPhoto}  src={photo} fixed/>
+       <Image style={styles.backgorindPhoto}  src={photo ?? '../../../docs/Frame.22ec601a.png'} fixed/>
     </Page>
   </Document>
 );
 
-export default PDFDocument;//20252B
+export default PDFDocument;
