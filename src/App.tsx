@@ -20,11 +20,11 @@ const App:React.FC<{domElement: any}> = ( { domElement }) => {
   const backgroundColor = useSelector((state: AppState) => state.mainToolsReducer.backgroundColor);
 
   useEffect(()=>{
-    dispatch(setTextColor(domElement.getAttribute("textColor")));
-    dispatch(setBackgroundColor(domElement.getAttribute("backgroundColor")));
-    dispatch(setMainColor(domElement.getAttribute("mainColor")));
-    dispatch(setBorderColor(domElement.getAttribute("borderColor")));
-    dispatch(setQuestionnaireId(domElement.getAttribute("questionnaireId")));
+    dispatch(setTextColor(domElement.getAttribute("data-text-color")));
+    dispatch(setBackgroundColor(domElement.getAttribute("data-background-color")));
+    dispatch(setMainColor(domElement.getAttribute("data-main-color")));
+    dispatch(setBorderColor(domElement.getAttribute("data-border-color")));
+    dispatch(setQuestionnaireId(domElement.getAttribute("data-questionnaireid")));
     // eslint-disable-next-line
   },[]);
 
