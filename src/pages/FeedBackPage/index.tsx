@@ -7,18 +7,23 @@ import { TextComponet } from "../../compoents/Text";
 import { AppState } from "../../redux/store";
 import { FeedBackBox } from "./style";
 import { saveAs } from 'file-saver';
+import { sendEmailPDf } from "../../API";
 
 const FeedBack = () => {
     const clientId = useSelector((state: AppState) => state.answersReducer.clientId);
     const questionnaireId = useSelector((state: AppState) => state.mainToolsReducer.questionnaireId);
 
     const generate = async () => {
-        await fetch(`https://hbz-dev.zubi.gmbh/api/client/answers/?clientId=${clientId}&questionnaireId=${questionnaireId}`).then(r => console.log(r))
-        const doc = <PDFDocument />;
+        const result = await fetch(`https://hbz-dev.zubi.gmbh/api/client/answers/?clientId=${clientId}&questionnaireId=${questionnaireId}`).then(response => response.json())
+        .then(data => data)
+        const doc = <PDFDocument {...result}/>;
         const asPdf = pdf();
         asPdf.updateContainer(doc);
         const blob = await asPdf.toBlob();
         saveAs(blob, 'result.pdf');
+        // const pdfFile = await pdf(<PDFDocument {...result} />).toBlob()
+
+        // sendEmailPDf(clientId,questionnaireId,pdfFile);
     }
     useEffect(() => {
         generate()

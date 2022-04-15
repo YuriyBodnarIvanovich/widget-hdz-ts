@@ -68,8 +68,8 @@ export const mockData = [
         questionId: '',
         answerItemResponses: []
     }
-
 ]
+
 export const  getClientId = (name: string,phone: string, email: string, questionnaireId: string) => {    
     const requestOptions = {
         method: 'POST',
@@ -106,5 +106,23 @@ export const sendAnswer = (clientId: string, answers: string[], comment: string)
         .then(response => response.json())
         .then(data => {
             return data;
+    });
+}
+
+export const sendEmailPDf = (clientId: string, questionnaireId: string, template: Blob) => {    
+    const fd = new FormData();
+    const file = new File([template], "file", { lastModified: new Date().getTime(), type: template.type });
+    fd.append("file", file);
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'multipart/form-data', 'Accept': '*/*' },
+        body: fd
+    };
+
+    return fetch(`https://hbz-dev.zubi.gmbh/api/client/send?clientId=${clientId}&questionnaireId=${questionnaireId}`, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
     });
 }
