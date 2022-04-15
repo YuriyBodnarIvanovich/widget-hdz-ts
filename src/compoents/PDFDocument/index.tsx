@@ -91,7 +91,7 @@ const PDFDocument:React.FC<IPdfResult> = ({
       }
       const generateData = (data: string) => {
         const dataObj = new Date(data);
-        return `${checkZero(dataObj.getDay())}.${checkZero(dataObj.getMonth())}.${dataObj.getFullYear()}`
+        return `${checkZero(dataObj.getDate())}.${checkZero(dataObj.getMonth() + 1)}.${dataObj.getFullYear()}`
       }
 
     return  (
@@ -173,7 +173,7 @@ const PDFDocument:React.FC<IPdfResult> = ({
               Page:<Text style={{fontSize: 8,color: '#20252B'}}>&nbsp;{pageNumber}</Text> / {totalPages}
             </Text>
           )} fixed />
-           <Image style={styles.backgorindPhoto}  src={photo ?? "https://yuriybodnarivanovich.github.io/widget-hdz-ts/Frame.22ec601a.png"} fixed/>
+           <Image style={styles.backgorindPhoto}  src={"https://yuriybodnarivanovich.github.io/widget-hdz-ts/Frame.22ec601a.png"} fixed/>
         </Page>
       </Document>
     );

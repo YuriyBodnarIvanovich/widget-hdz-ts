@@ -1,6 +1,8 @@
 //f6803026-e93d-4c89-bbee-08d9ba52c1a9
 //fb42f9d5-21a5-4bde-bbf2-08d9ba52c1a9
 
+import { flushSync } from "react-dom";
+
 export const mockData = [
     {
         text: 'Hello 1',
@@ -111,12 +113,10 @@ export const sendAnswer = (clientId: string, answers: string[], comment: string)
 
 export const sendEmailPDf = (clientId: string, questionnaireId: string, template: Blob) => {    
     const fd = new FormData();
-    const file = new File([template], "file", { lastModified: new Date().getTime(), type: template.type });
-    fd.append("file", file);
-
+    fd.append("template", template, 'result.pdf');
+     
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'multipart/form-data', 'Accept': '*/*' },
         body: fd
     };
 
