@@ -14,17 +14,18 @@ import LineProgress from './compoents/LineProgress';
 import { AppState } from './redux/store';
 
 
-const App:React.FC<{domElement: any}> = ( { domElement }) => {
+const App:React.FC<{domElement?: any}> = ( { domElement }) => {
   const dispatch = useDispatch();
   const pageNumber = useSelector((state: AppState) => state.pagesReducer.pageNumber);
   const backgroundColor = useSelector((state: AppState) => state.mainToolsReducer.backgroundColor);
-
+  const root = document.getElementById('hbz_widget');
+  console.log(root)
   useEffect(()=>{
-    dispatch(setTextColor(domElement.getAttribute("data-text-color")));
-    dispatch(setBackgroundColor(domElement.getAttribute("data-background-color")));
-    dispatch(setMainColor(domElement.getAttribute("data-main-color")));
-    dispatch(setBorderColor(domElement.getAttribute("data-border-color")));
-    dispatch(setQuestionnaireId(domElement.getAttribute("data-questionnaireid")));
+    dispatch(setTextColor(root?.getAttribute("data-text-color")));
+    dispatch(setBackgroundColor(root?.getAttribute("data-background-color")));
+    dispatch(setMainColor(root?.getAttribute("data-main-color")));
+    dispatch(setBorderColor(root?.getAttribute("data-border-color")));
+    dispatch(setQuestionnaireId(root?.getAttribute("data-questionnaireid")));
     // eslint-disable-next-line
   },[]);
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -8,18 +8,26 @@ import store from './redux/store';
 import 'regenerator-runtime/runtime'
 
 
-const WidgetDivs = document.querySelectorAll('.hbz_widget')
+// const WidgetDivs = document.querySelectorAll('.hbz_widget')
 
-WidgetDivs.forEach(Div => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <App domElement={Div}/>
+// WidgetDivs.forEach(Div => {
+//   ReactDOM.render(
+//     <React.StrictMode>
+//       <Provider store={store}>
+//         <App domElement={Div}/>
+//       </Provider>
+//     </React.StrictMode>,
+//     Div
+//   );
+// })
+ReactDOM.render(
+  <StrictMode>
+    <Provider store={store}>
+        <App/>
       </Provider>
-    </React.StrictMode>,
-    Div
-  );
-})
+  </StrictMode>,
+	document.getElementById('hbz_widget'),
+);
 
 
 // If you want to start measuring performance in your app, pass a function
