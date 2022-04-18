@@ -6,7 +6,6 @@ import PDFDocument from "../../compoents/PDFDocument";
 import { TextComponet } from "../../compoents/Text";
 import { AppState } from "../../redux/store";
 import { FeedBackBox } from "./style";
-import { saveAs } from 'file-saver';
 import { sendEmailPDf } from "../../API";
 
 const FeedBack = () => {
@@ -16,17 +15,12 @@ const FeedBack = () => {
     const generate = async () => {
         const result = await fetch(`https://hbz-dev.zubi.gmbh/api/client/answers/?clientId=${clientId}&questionnaireId=${questionnaireId}`).then(response => response.json())
         .then(data => data)
-        // const doc = <PDFDocument {...result}/>;
-        // const asPdf = pdf();
-        // asPdf.updateContainer(doc);
-        // const blob = await asPdf.toBlob();
-        // saveAs(blob, 'result.pdf');
         const pdfFile = await pdf(<PDFDocument {...result} />).toBlob()
-
         sendEmailPDf(clientId,questionnaireId,pdfFile);
     }
     useEffect(() => {
         generate()
+        // eslint-disable-next-line
     },[])
     
     return(

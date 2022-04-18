@@ -19,7 +19,6 @@ const App:React.FC<{domElement?: any}> = ( { domElement }) => {
   const pageNumber = useSelector((state: AppState) => state.pagesReducer.pageNumber);
   const backgroundColor = useSelector((state: AppState) => state.mainToolsReducer.backgroundColor);
   const root = document.getElementById('hbz_widget');
-  console.log(root)
   useEffect(()=>{
     dispatch(setTextColor(root?.getAttribute("data-text-color")));
     dispatch(setBackgroundColor(root?.getAttribute("data-background-color")));

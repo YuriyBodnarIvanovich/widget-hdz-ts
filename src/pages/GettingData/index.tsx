@@ -19,9 +19,6 @@ const GettingData = () => {
     const [telefone, setTelefone] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [submitErr, setSubmitErr] = useState(false);
-    const handleBack = () => {
-        dispatch(setNumber(pageNumber - 1));
-    }
 
     const handleTelefone = (e: ChangeEvent<HTMLInputElement>) => {
         const data = e.target.value.match(/\d/g)?.join('') ?? '';

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
 import { Logo } from './Logo';
+// eslint-disable-next-line
 import photo from '../../static/img/Frame.png';
 import { IPdfResult } from './types';
 
@@ -76,14 +77,6 @@ const PDFDocument:React.FC<IPdfResult> = ({
     description,
     answers 
   }) => {
-    console.log(clientName, 
-      completionDate, 
-      email, 
-      name, 
-      phone, 
-      subject, 
-      answers )
-
       const checkZero = (num: number) => {
         if(num <10){
           return `0${num}`

@@ -20,10 +20,6 @@ const QuestionPage = () => {
     const textColor = useSelector((state: AppState) => state.mainToolsReducer.textColor);
     const borderColor = useSelector((state: AppState) => state.mainToolsReducer.borderColor);
     const [disabledNext, setDiabled] = useState(false);
-    
-    const handleBack = () => {
-        questionPage > 0 ? dispatch(setQuestionPage(questionPage - 1)) : dispatch(setNumber(1))
-    }
 
     const handleSubmit  = () => {
         sendAnswer(clientId, answers[questionPage].answerData, answers[questionPage].comment).then((data)=> {
