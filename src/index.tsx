@@ -7,19 +7,6 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import 'regenerator-runtime/runtime'
 
-
-// const WidgetDivs = document.querySelectorAll('.hbz_widget')
-
-// WidgetDivs.forEach(Div => {
-//   ReactDOM.render(
-//     <React.StrictMode>
-//       <Provider store={store}>
-//         <App domElement={Div}/>
-//       </Provider>
-//     </React.StrictMode>,
-//     Div
-//   );
-// })
 ReactDOM.render(
   <StrictMode>
     <Provider store={store}>

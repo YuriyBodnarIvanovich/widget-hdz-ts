@@ -73,6 +73,7 @@ const PDFDocument:React.FC<IPdfResult> = ({
     name, 
     phone, 
     subject, 
+    description,
     answers 
   }) => {
     console.log(clientName, 
@@ -119,10 +120,7 @@ const PDFDocument:React.FC<IPdfResult> = ({
             </View>
             <View style={{marginTop: 20, width: 420}}>
               <Text style={styles.littleFont}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed risus magna, porta rutrum turpis sit amet,
-                porta pulvinar tellus. Vivamus a augue sit amet lectus pulvinar facilisis. Curabitur sodales, magna at
-                mollis blandit, justo magna malesuada enim, et pulvinar dui lorem porta est. Etiam sit amet vestibulum massa.
-                Cras commodo est leo, ut dictum ligula fringilla sed. Suspendisse interdum massa elit, a eleifend tortor vulputate eget. 
+                {description} 
               </Text>
             </View>
             {

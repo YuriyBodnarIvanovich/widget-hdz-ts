@@ -8,6 +8,7 @@ interface IAnswers {
 export interface IPdfResult {
     clientName?: string,
     completionDate?: string,
+    description?: string;
     email?: string, 
     name?: string,
     phone?: string,
